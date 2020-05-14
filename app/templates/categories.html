@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="site-section">
+    <div class="container">
+        <h2 class="section-title mb-3">Check Out Our Properties</h2>
+        <div class="row">
+            <div class="col-md-3 order-1 order-md-2">
+                <div class="mb-5">
+                    <h3 class="text-black mb-4 h5 font-family-2">Filter</h3>
+                    <form action="#">
+                        <div class="form-group">
+                            <div class="select-wrap">
+                                <span class="icon icon-keyboard_arrow_down"></span>
+                                <select class="form-control px-3">
+                                    <option value="">By Location</option>
+                                    <option value="">Nairobi</option>
+                                    <option value="">Mombasa</option>
+                                    <option value="">Kisumu</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="select-wrap">
+                                <span class="icon icon-keyboard_arrow_down"></span>
+                                <select class="form-control px-3">
+                                    <option value="">By Price</option>
+                                    <option value="">Ksh.5,000</option>
+                                    <option value="">Ksh.5001-Ksh.20,000</option>
+                                    <option value="">Ksh.20,001-Ksh.40,000</option>
+                                    <option value="">+ Ksh.50,000</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="select-wrap">
+                                <span class="icon icon-keyboard_arrow_down"></span>
+                                <select class="form-control px-3">
+                                    <option value="">By Date</option>
+                                    <option value="">Trending</option>
+                                    <option value="">Best</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="select-wrap">
+                                <span class="icon icon-keyboard_arrow_down"></span>
+                                <select class="form-control px-3">
+                                    <option value="">By Size</option>
+                                    <option value="">Single Room</option>
+                                    <option value="">Double Room</option>
+                                    <option value="">Bedsitter</option>
+                                    <option value="">1 Bedroom</option>
+                                    <option value="">2 Bedroom</option>
+                                    <option value="">3+ Bedroom</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            {% for all_properties in all_properties %}
+            <div class="col-md-9 order-2 order-md-1">
+                <div class="row large-gutters">
+                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-5 ">
+                        <div class="ftco-media-1">
+                            <div class="ftco-media-1-inner">
+                                <a href="" class="d-inline-block mb-4"><img src="{{ url_for('static', filename='images/' + _property.image_file) }}"
+                                        alt="Image" class="img-fluid"></a>
+                                <div class="ftco-media-details">
+                                    <h3>
+                                        <a href="{{ url_for('_property', _property_id=_property.id) }}">{{ _property.location }}</a>
+                                    </h3>
+                                    <strong>
+                                        <a href="{{ url_for('_property', _property_id=_property.id) }}">{{ _property.rent }}</a>
+                                    </strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<div class="site-section" id="properties-section">
+    <div class="container">
+        <h2 class="section-title mb-3">Trending Properties</h2>
+        <div class="owl-carousel nonloop-block-13 mb-5">
+            <div class="ftco-media-1">
+                <div class="ftco-media-1-inner">
+                    <a href="" class="d-inline-block mb-4"><img src="../static/images/property_1.jpg" alt="Image"
+                            class="img-fluid"></a>
+                    <div class="ftco-media-details">
+                        <p>Nairobi, Lavington Agwigs Rd, Phase Two</p>
+                        <strong>Ksh.20,000</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="ftco-media-1">
+                <div class="ftco-media-1-inner">
+                    <a href="" class="d-inline-block mb-4"><img src="../static/images/property_2.jpg" alt="Image"
+                            class="img-fluid"></a>
+                    <div class="ftco-media-details">
+                        <p>Kisumu, Siaya Along Karachuonyo Rd</p>
+                        <strong>Ksh.30,000</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="ftco-media-1">
+                <div class="ftco-media-1-inner">
+                    <a href="" class="d-inline-block mb-4"><img src="../static/images/property_3.jpg" alt="Image"
+                            class="img-fluid"></a>
+                    <div class="ftco-media-details">
+                        <p>Mombasa, Bamburi Phase 4</p>
+                        <strong>Ksh.40,000</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="ftco-media-1">
+                <div class="ftco-media-1-inner">
+                    <a href="" class="d-inline-block mb-4"><img src="../static/images/property_4.jpg" alt="Image"
+                            class="img-fluid"></a>
+                    <div class="ftco-media-details">
+                        <p>Nairobi, Kilimani Phase 4</p>
+                        <strong>Ksh.40,000</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
